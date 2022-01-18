@@ -5,3 +5,23 @@ div{
     padding: 2rem;
     
 }
+
+.btn{
+background-color: red;
+}
+#main-btn{
+    background-color: green;
+}
+.container{
+    display:flex;
+    height: 2px;
+}
+.logo{
+   flex-grow: 1;
+}
+.separte{
+    padding:10px
+}
+
+
+/* //inline,id,class,element */

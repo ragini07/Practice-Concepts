@@ -110,21 +110,74 @@
 //     },true);
 
 
-    /*********************** Event Delegation************************/
+/*********************** Event Delegation************************/
 
-    document.querySelector('#category')
-        .addEventListener('click',(e)=>{
-            console.log(e.target.tagName);
-            console.log(e.target.id);
-            //console.log(e.target.value);
-            if(e.target.tagName === 'LI'){
-                window.location.href = "/"+e.target.id;
-            }
-        })
+    // document.querySelector('#category')
+    //     .addEventListener('click',(e)=>{
+    //         console.log(e.target.tagName);
+    //         console.log(e.target.id);
+    //         //console.log(e.target.value);
+    //         if(e.target.tagName === 'LI'){
+    //             window.location.href = "/"+e.target.id;
+    //         }
+    //     })
+
+//@Hoisting concept
+
+    // getName();
+    // console.log(x);
+    // console.log(getName);
+    // var x = 5;
 
 
+    // function getName(){
+    //     console.log("javascript");
+    // }   
+
+    //IMP:Arrow function behaves like variable
+    /*var getName = ()=>{
+        console.log("javascript");
+    }*/
+
+    /*var getName = function(){
+        console.log("javas");
+    }*/ 
+    
+    //@Hoisting concept ends
 
 
+//@how function works in JS
+/*
+    var x=1;
+    a();
+    b();
+    //all same
+    console.log(this.x);
+    console.log(window.x);
+    console.log(x);
 
+    function a(){
+        var x=10;
+        console.log(x);
+    }
+    function b(){
+        var x=100;
+        console.log(this.x);
+        //console.log(x);
+    }
+    */
+//@function ends
 
+//@scope chain concept
+    // function x()
+    // {   var b=10;
+    //     y();
+    //     function y(){
+    //         //console.log(b);
+    //     }
+    // }
+    // //var b=10;
+    // x();
+    // console.log(b);
 
+//@scope chain concept ends
