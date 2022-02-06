@@ -1,3 +1,12 @@
+const colorConfig={
+    red:true,
+    blue:false,
+    green:true
+}
+const color=["pink","red","blue"];
+console.log(colorConfig.color[1]);
+
+
 
 /*********************************SCOPE FOR let,const and var******************* */
 
