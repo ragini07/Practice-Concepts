@@ -1,10 +1,10 @@
-const colorConfig={
-    red:true,
-    blue:false,
-    green:true
-}
-const color=["pink","red","blue"];
-console.log(colorConfig.color[1]);
+// const colorConfig={
+//     red:true,
+//     blue:false,
+//     green:true
+// }
+// const color=["pink","red","blue"];
+// console.log(colorConfig.color[1]);
 
 
 
@@ -407,25 +407,25 @@ console.log(colorConfig.color[1]);
 
 //2.
 
-const toSentenceCase = (str) => {
-    // let arr = str.split(" ")
-    // for(let i=0 ; i<arr.length ; i++){
-    //     arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1)
+// const toSentenceCase = (str) => {
+//     // let arr = str.split(" ")
+//     // for(let i=0 ; i<arr.length ; i++){
+//     //     arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1)
             
-    // }
-    // let convertedStr = arr.join(" ")
-    // console.log(convertedStr)
+//     // }
+//     // let convertedStr = arr.join(" ")
+//     // console.log(convertedStr)
 
-    let str1 = ""
-    str = str[0].toUpperCase() + str.substr(1)
-    console.log(str)
-    for(let i=0;i<str.length;i++){
-            if(str[i] === " ")
-                str = str.substr(0,i+1)+str[i+1].toUpperCase()+str.substr(i+2)
-    }
-    console.log(str)
-}
-toSentenceCase('we are neoGrammers')
+//     let str1 = ""
+//     str = str[0].toUpperCase() + str.substr(1)
+//     console.log(str)
+//     for(let i=0;i<str.length;i++){
+//             if(str[i] === " ")
+//                 str = str.substr(0,i+1)+str[i+1].toUpperCase()+str.substr(i+2)
+//     }
+//     console.log(str)
+// }
+// toSentenceCase('we are neoGrammers')
 
 // const toSentenceCase = (str) => {
 
@@ -450,8 +450,8 @@ toSentenceCase('we are neoGrammers')
 
 //4.
 
-reverseCharactersOfWord('we are neoGrammers')
-//********************************interview questions**********************//
+// reverseCharactersOfWord('we are neoGrammers')
+//********************************interview questions akansha**********************//
 //1.
 // const sum = (a,b) => a+b;
 // console.log(sum(1,'2'))
@@ -520,6 +520,263 @@ reverseCharactersOfWord('we are neoGrammers')
 // var arr2 = [arr1 , [3,4]] //[[1,2] ,[3,4]]
 // var arr3 = [...arr2,[7,8]]
 // console.log(arr3)
+
+// 10.
+
+// const arr = [1,3,5,8,10,11,16]
+
+// const getOddArray = x => x%2 === 0 ? x+1 : x;
+// arr.map(getOddArray)
+
+
+/*******************notion assigment****************** */
+// 1
+// const arr = [1, 2, 3, 58, 5, 6, 24, 8, 15, 4];
+
+// const getOddArray = x => x%2 === 0 ? x+1 : x;
+
+// console.log(arr.map(getOddArray))
+
+// 2
+// const family = [
+//     {
+//       name    : 'Tanay',
+//       haveCycle : true
+//     },
+//     {
+//       name     : 'Akanksha',
+//       haveCycle : false
+//     },
+//     {
+//       name     : 'Tanvi',
+//       haveCycle : true
+//     },
+//       {
+//       name     : 'Kanak',
+//       haveCycle : false
+//     }
+//   ];
+
+
+// console.log(family.filter(member => member.haveCycle).map(member => member.name))
+// console.log(family.reduce((acc,curr) => curr.haveCycle ? [...acc,curr.name] : acc,[]))
+// //doubt whats the differnnce here check in react notes
+// //doubt in line 562 [...acc]
+// const newarr = family.reduce((acc,curr) => {
+//     if(curr.haveCycle)
+//         acc.push(curr.name)
+//     return acc
+
+// },[])
+// console.log(newarr)
+
+// 3
+// const arr = [1, 2, 3, 58, 5, 6, 24, 8, 15, 4];
+// const evenNoLessThenEight = arr => {
+//     console.log(arr.filter(x => x%2 === 0 && x<=8))
+//     console.log(arr.reduce((acc,curr) => curr%2 === 0 && curr<=8 ? [...acc,curr] : acc,[]))
+// }
+
+// evenNoLessThenEight(arr)
+
+// 4
+// const arr = ['eat', 'sleep', 'repeat', 'code'];
+
+// const moreThen5Character = arr => {
+//     console.log(arr.filter(x => x.length>5))
+//     console.log(arr.reduce((acc,curr) => curr.length>5 ? [...acc,curr] : acc,[]))
+// }
+// moreThen5Character(arr)
+
+// 5
+// const arr = [1, 2, 3, 58, 5, 6, 62, 8, 70];
+
+// const sumGreaterThan50 = arr => arr.reduce((acc,curr) => curr>50 ? acc+curr : acc,0)
+
+// console.log(sumGreaterThan50(arr))
+
+// 6
+// const arr = [1, 2, 3, 7, 5, 6, 8, 9];
+
+// const evenProduct = arr => arr.reduce((acc,curr) => curr%2 === 0 ? acc*curr : acc,1)
+// console.log(evenProduct(arr))
+
+// 7
+// const arr = [
+// 	{
+// 		name: "Jay",
+// 		age: 60
+// 	},
+// 	{
+// 		name: "Gloria",
+// 		age: 36
+// 	},
+// 	{
+// 		name: "Manny",
+// 		age: 16
+// 	},
+// 	{
+// 		name: "Joe",
+// 		age: 9
+// 	}
+// ]
+
+// const ageSum = arr => arr.reduce((acc,curr) => acc+curr.age,0)
+// console.log(ageSum(arr))
+
+
+// 8
+// const arr = ["You", "all", "are", "rockstars"];
+
+// console.log(arr.reduce((acc,curr,index) => ({...acc,[index] : curr}) ,{} ))
+
+// 9
+// const arr = [
+// 	{
+// 		name: "Apple"
+// 	},
+// 	{
+// 		name: "Mango"
+// 	},
+// 	{
+// 		name: "Potato"
+// 	},
+// 	{
+// 		name: "Guava"
+// 	},
+// 	{
+// 		name: "Capsicum"
+// 	}
+// ]
+//can use map
+
+// console.log(arr.reduce((acc,curr) => curr.name.length>5 ? [...acc,{...curr,type : 'vegetable'}]:[...acc,{...curr,type : 'fruit'}],[]))
+
+// 10
+// const inventory = [
+//     {name: 'fans', quantity: 3},
+//     {name: 'chimneys', quantity: 0},
+//     {name: 'bulbs', quantity: 5},
+//     {name: 'stove', quantity: 1}    
+//   ];
+
+
+// console.log(inventory.filter(x => x.quantity<2))
+// console.log(inventory.reduce((acc,curr) => curr.quantity<2 ? [...acc,curr] : [...acc],[]))
+
+// console.log(inventory.reduce((acc,curr) => acc+curr.quantity,0))
+
+// // console.log(inventory.reduce((acc,curr) => curr.quantity === 0 ? {...acc,curr} : acc,{}))
+// console.log(inventory.reduce((acc,curr) => curr.quantity === 0 ? curr : acc,{}))
+
+
+//11
+// str = "rags"
+// const arr = [...str]
+
+// const arr = ["Violet", "Indigo", "Blue", "Green", "Yellow", "Orange", "Red"]
+
+// arr.join('-')
+// arr.reduce((acc,curr,index,array) => index === array.length-1?[...acc,curr]:[...acc,curr,'-'],[]).join('')
+
+// arr.reduce((acc,curr,index,array) => {
+//   if(index === array.length-1)
+//     return acc+curr;
+//   return acc+curr+'-';
+// },'')
+
+
+//12
+
+// const str = '24345687'
+// str.split('').reduce((acc,curr,index,array) => {
+//   if(curr%2 ===0 && array[index+1]%2 ===0)
+//     return acc+curr+'-'
+//   return acc+curr
+// },'')
+
+
+// str.split('').reduce((acc,curr) => {
+//   if(curr%2 ===0 && acc[acc.length-1]%2 ===0)
+//     return acc+'-'+curr
+//   return acc+curr
+// },'')
+
+
+//13
+// const toUpperCase = (str) => str.toUpperCase()
+// console.log(toUpperCase("neogrammer"))
+
+//14
+//use indexof to get vowel
+
+
+// const isVowel = char => {
+//   if(char === 'a' || char === 'e'||char === 'i'||char === 'o'||char === 'u')
+//     return true;
+//   return false
+// }
+
+// const vowelsToUpperCase = str =>  {
+//   return [...str].reduce((acc,curr) => isVowel(curr) ? acc+curr.toUpperCase() : acc+curr.toLowerCase(),'')
+// }
+
+// console.log(vowelsToUpperCase('neoG'))
+
+//15
+// const input = [
+//   ['a', 'b', 'c'],
+//   ['c', 'd', 'e'],
+//   ['e', 'd', 'f'],
+// ];
+
+// const flatten =  input.reduce((acc,curr) => [...acc,...curr],[])
+
+//16
+// flatten.reduce((acc,curr) => {
+//   if(acc[curr])
+//       return {...acc , [curr] : acc[curr]+1}
+//   return {...acc , [curr] : 1}
+// },{})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const arr = ['eat', 'sleep','repeat', 'code'];
+
+// const checkLength = arr => arr.filter(item => item.length>5)
+
+// console.log(checkLength(arr))
+
+
+const arr = [1, 2, 3, 58, 5, 6, 62, 8, 70];
+
+console.log(arr.reduce((acc,curr) => curr>50 ? acc+curr : acc,0))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
