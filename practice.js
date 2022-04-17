@@ -529,7 +529,7 @@
 // arr.map(getOddArray)
 
 
-/*******************notion assigment****************** */
+/*******************notion assigment functional programming****************** */
 // 1
 // const arr = [1, 2, 3, 58, 5, 6, 24, 8, 15, 4];
 
@@ -743,24 +743,42 @@
 
 
 
+// const input = ['apple','mango','ragini','shango']
 
 
+// input.reduce((acc,curr) => {
+//     if(acc[curr.length])
+//         acc = {...acc , [curr.length] : acc[curr.length]+1}
+//     else
+//         acc = {...acc , [curr.length] : 1}
+//     return acc
+// },{})
 
 
+const input = [
+    ['a','b','c'],
+    ['d','e','f'],
+    ['b','g','c']
+]
+
+const flattenResult = input.reduce((acc,curr) => {
+    acc = [...acc,...curr]
+    return acc
+})
+const result = flattenResult.reduce((acc,curr) => {
+    if(acc[curr])
+        acc = {...acc , [curr] : acc[curr]+1}
+    else
+        acc = {...acc , [curr] : 1}
+    return acc
+},{})
+console.log(result)
+
+const obj = {name:"ragini"}
+
+console.log(obj.place)
 
 
-
-
-// const arr = ['eat', 'sleep','repeat', 'code'];
-
-// const checkLength = arr => arr.filter(item => item.length>5)
-
-// console.log(checkLength(arr))
-
-
-const arr = [1, 2, 3, 58, 5, 6, 62, 8, 70];
-
-console.log(arr.reduce((acc,curr) => curr>50 ? acc+curr : acc,0))
 
 
 

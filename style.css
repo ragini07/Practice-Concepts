@@ -22,6 +22,16 @@ background-color: red;
 .separte{
     padding:10px
 }
-
-
+.link{
+    color: yellow;
+}
+.link:hover{
+    color: green;
+}
+.link:active{
+    color: red;
+}
+.link:visited{
+    color: black;
+}
 /* //inline,id,class,element */
