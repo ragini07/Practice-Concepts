@@ -64,10 +64,6 @@
 
 // //2. all index of num in array
 
-
-
-
-
 // //3.
 // const toSentenceCase = str => {
 //    let arr = str.split('')
@@ -102,7 +98,7 @@
 //     else
 //       return 0
 //   }
-  
+
 //   console.log(noOfWord('we are neogrammers'))
 
 // //2.
@@ -116,22 +112,22 @@
 // const sortedAsc = arr => {
 //     // return [...arr].sort((a,b) => a-b)
 
-//     let n = arr.length;
- 
-//     for(let i =0 ;i < n-1 ; i++) {
-//         let flag = false;
-//         for(let j =0 ;j < n-i-1 ; j++){
-//             if(arr[j] > arr[j+1])
-//                 {
-//                     flag = true;
-//                     let temp = arr[j];
-//                     arr[j] = arr[j+1];
-//                     arr[j+1] = temp;
-//                 }
-//         }
-//         if(!flag)
-//             break;
+// let n = arr.length;
+
+// for(let i =0 ;i < n-1 ; i++) {
+//     let flag = false;
+//     for(let j =0 ;j < n-i-1 ; j++){
+//         if(arr[j] > arr[j+1])
+//             {
+//                 flag = true;
+//                 let temp = arr[j];
+//                 arr[j] = arr[j+1];
+//                 arr[j+1] = temp;
+//             }
 //     }
+//     if(!flag)
+//         break;
+// }
 
 //     return arr;
 // }
@@ -153,7 +149,6 @@
 //     }
 //     return min
 
-  
 // }
 
 // console.log(findMin(12,3,6,1,8))
@@ -162,7 +157,6 @@
 
 // const mergeArray = (arr1, arr2) => {
 //     // let mergedArr = [...arr1,...arr2]
-   
 
 //     let mergedArr = [];
 //     let n = arr1.length;
@@ -197,7 +191,6 @@
 
 // // reverseCharOfWords('we are   neogrammars')
 
-
 // const reverseCharOfWords1 = str =>{
 //    let newStr = str.trim();
 //    let k =0;
@@ -215,62 +208,235 @@
 //                 reverseStr += newStr[j]
 //             }
 //        }
-        
+
 //    }
 //    console.log(reverseStr)
 // }
 
 // reverseCharOfWords1('we are neogrammars')
 
+// //day5
+// //1.
+// const concateInBiggerStr = (str1 , str2) => {
+//     let l1 = str1.length;
+//     let l2 = str2.length;
+//     if(l1 >  l2){
+//         str1 += str2;
+//         return str1
+//     }
+//     else{
+//         str2 += str1;
+//         return str2;
+//     }
+// }
 
+// console.log(concateInBiggerStr("batch 2022","we are neoGrammars"))
 
-//day5
+// //2.
+
+// const stringToUppercase = str => {
+//     // return str.toUpperCase()
+//     let result = ""
+//     for(let i=0 ; i < str.length ; i++){
+//         let charCode = str[i].charCodeAt()
+//         if(charCode >= 97 && charCode <= 122){
+//             result  += String.fromCharCode(charCode-32)
+//         }
+//         else{
+//             result += str[i]
+//         }
+//     }
+//     return result
+// }
+
+// console.log(stringToUppercase("we are neoGrammers"))
+
+// //3.
+
+// const replaceStr = (str , c1 ,c2) =>{
+//     let result = ""
+//     for(let i =0; i< str.length ;i++){
+//         if(str[i] === c1)
+//             result += c2;
+//         else
+//             result += str[i]
+//     }
+//     return result
+// }
+
+// console.log(replaceStr('we are neoGrammers','r','u'))
+
+// //day 6
+// //1.
+
+// const getStrLength = str => {
+//     let length = 0;
+//     // while(str[length] !== undefined){
+//     //     length++;
+//     // }
+//     let arr = [...str]
+//     for(let i of arr){
+//         length++
+//     }
+//     return length
+// }
+
+// console.log(getStrLength('we are neoGrammars'))
+
+// //2.
+// const removeTimeFromDate = str => {
+//     let result = "";
+//     for(let i =0 ;i< str.length ; i++){
+//         if(str[i] === ","){
+//             break;
+//         }
+//         result += str[i]
+//     }
+//     return result
+// }
+
+// console.log(removeTimeFromDate("Wed April 15, 7pm"))
+
+// //3.
+
+// const removeSpaceFromStr = str => {
+//     let result = "";
+//     for(let i =0 ;i< str.length ; i++){
+//         if(str[i] !== " "){
+//             result += str[i]
+//         }
+//     }
+//     return result
+// }
+
+// console.log(removeSpaceFromStr('   we are   neoGrammars'))
+
+//day7
+// // //1.
+// const maskStr = str => {
+//     let result = "";
+//     if(str.length<=4)
+//         return str;
+//     for(let i=0;i<str.length-4;i++){
+//         result+='#'
+//     }
+//     return result + str.slice(str.length -4 , str.length)
+// }
+
+// console.log(maskStr("5237183912391fg54"))
+
+// //2.
+// const checkPalindrome = str => {
+//     let i=0;
+//     let j = str.length-1;
+//     let isPalindrome = true;
+//     while(i <= j){
+//         if(str[i] !== str[j]){
+//             isPalindrome = false;
+//             break;
+//         }
+//         i++;
+//         j--;
+//     }
+//     return isPalindrome
+// }
+
+// console.log(checkPalindrome('213affa312'))
+// //3.
+
+// const reverseStrWordWise = str => {
+//     let arr = str.split(" ")
+//     console.log(arr)
+//     let i=0;
+//     let j = arr.length-1;
+//     while(i<=j)
+//    {
+//         //swap
+//       [arr[i],arr[j]] =  [arr[j],arr[i]]
+//         i++;
+//         j--;
+//     }
+//     return arr.join(" ")
+// }
+
+// console.log(reverseStrWordWise('Welcome to neog camp'))
+
+//day 8
 //1.
-const concateInBiggerStr = (str1 , str2) => {
-    let l1 = str1.length;
-    let l2 = str2.length;
-    if(l1 >  l2){
-        str1 += str2;
-        return str1
-    }
-    else{
-        str2 += str1;
-        return str2;
-    }
-}
+const findMax = (...arr) => {
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) max = arr[i];
+  }
+  return max;
+};
 
-console.log(concateInBiggerStr("batch 2022","we are neoGrammars"))
-
+console.log(findMax(3, 2, 12, 67, 1));
 //2.
+const charAtIndex = (str, index) => {
+  if (index >= str.length) return "index is not in the string";
+  return str[index];
+};
 
-const stringToUppercase = str => {
-    // return str.toUpperCase()
-    let result = ""
-    for(let i=0 ; i < str.length ; i++){
-        let charCode = str[i].charCodeAt()
-        if(charCode >= 97 && charCode <= 122){
-            result  += String.fromCharCode(charCode-32)     
-        }
-        else{
-            result += str[i]
-        }
-    }
-    return result
-}
-
-console.log(stringToUppercase("we are neoGrammers"))
+console.log(charAtIndex("neogCamp", 4));
 
 //3.
+const checkWeekDay = (str) => {
+  if (str.toLowerCase() === "sunday" || str.toLowerCase() === "saturday")
+    return str + " is " + "weekend";
+  return str + " is " + "weekday";
+};
+console.log(checkWeekDay("sunDay"));
 
-const replaceStr = (str , c1 ,c2) =>{
-    let result = ""
-    for(let i =0; i< str.length ;i++){
-        if(str[i] === c1)
-            result += c2;
-        else
-            result += str[i]
+//np3 3--------------------------------Np3
+
+// const insertString = (str1 , str2 , pos) => {
+//   let result = "";
+//   for(let i =0 ;i< str1.length;i++){
+//     if(i === pos){
+//         result += str2;
+//     }
+//     result += str1[i];
+//   }
+//   console.log(str1.slice(0,pos) + str2 + str1.slice(pos, str1.length))
+//   console.log(result)
+// }
+// insertString('We are doing some problem solving.','JavaScript ',18);
+
+// Expected Output:
+// We are doing some JavaScript problem solving.
+
+// const substring = str => {
+//   let output =[]
+//   let result = ""
+//   for(let i=0;i<str.length;i++){
+//      result = ""
+//     for(let j=i;j<str.length;j++){
+//       result += str[j]
+//       output.push(result)
+//     }
+//   }
+//   console.log(output)
+// }
+
+// substring("neog")
+
+const protectEmail = (str) => {
+  let newStr = "";
+  let pos = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "@") {
+      pos = i;
+      break;
     }
-    return result
-}
+    newStr += str[i];
+  }
+  console.log(
+    newStr.slice(0, Math.trunc(newStr.length / 2)) +
+      "..." +
+      str.slice(pos, str.length)
+  );
+};
 
-console.log(replaceStr('we are neoGrammers','r','u'))
+protectEmail("akanq@neog.camp");
+// protectEmail("akanksha@neog.camp");
