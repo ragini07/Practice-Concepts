@@ -363,30 +363,30 @@
 
 //day 8
 //1.
-const findMax = (...arr) => {
-  let max = arr[0];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) max = arr[i];
-  }
-  return max;
-};
+// const findMax = (...arr) => {
+//   let max = arr[0];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > max) max = arr[i];
+//   }
+//   return max;
+// };
 
-console.log(findMax(3, 2, 12, 67, 1));
-//2.
-const charAtIndex = (str, index) => {
-  if (index >= str.length) return "index is not in the string";
-  return str[index];
-};
+// console.log(findMax(3, 2, 12, 67, 1));
+// //2.
+// const charAtIndex = (str, index) => {
+//   if (index >= str.length) return "index is not in the string";
+//   return str[index];
+// };
 
-console.log(charAtIndex("neogCamp", 4));
+// console.log(charAtIndex("neogCamp", 4));
 
-//3.
-const checkWeekDay = (str) => {
-  if (str.toLowerCase() === "sunday" || str.toLowerCase() === "saturday")
-    return str + " is " + "weekend";
-  return str + " is " + "weekday";
-};
-console.log(checkWeekDay("sunDay"));
+// //3.
+// const checkWeekDay = (str) => {
+//   if (str.toLowerCase() === "sunday" || str.toLowerCase() === "saturday")
+//     return str + " is " + "weekend";
+//   return str + " is " + "weekday";
+// };
+// console.log(checkWeekDay("sunDay"));
 
 //np3 3--------------------------------Np3
 
@@ -421,22 +421,189 @@ console.log(checkWeekDay("sunDay"));
 
 // substring("neog")
 
-const protectEmail = (str) => {
-  let newStr = "";
-  let pos = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === "@") {
-      pos = i;
-      break;
-    }
-    newStr += str[i];
-  }
-  console.log(
-    newStr.slice(0, Math.trunc(newStr.length / 2)) +
-      "..." +
-      str.slice(pos, str.length)
-  );
-};
+// const protectEmail = (str) => {
+//   let newStr = "";
+//   let pos = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === "@") {
+//       pos = i;
+//       break;
+//     }
+//     newStr += str[i];
+//   }
+//   console.log(
+//     newStr.slice(0, Math.trunc(newStr.length / 2)) +
+//       "..." +
+//       str.slice(pos, str.length)
+//   );
+// };
 
-protectEmail("akanq@neog.camp");
+// protectEmail("akanq@neog.camp");
 // protectEmail("akanksha@neog.camp");
+
+
+//day 9
+// //1.
+// const typeOfTriangle = (a,b,c) => {
+//     if(a+b+c ===  180){
+//         if(a === b && b === c) return "equilateral triangle"
+//         if(a === b || b===c || a===c) return "isosceles triangle"
+//         return "scalene triangle"
+//     }
+//     return "Not a triangle"
+// }
+
+// console.log(typeOfTriangle(80,50,50))
+
+// //2.
+// const minDate = (date1 , date2) => {
+//     const [day1 , month1 , year1] = date1.split("/")
+//     const [day2 , month2 , year2] = date2.split("/")
+//     if(year1 < year2) return date1
+//     if(year2 < year1) return date2
+//     // if year is same compare month
+//     if(month1 < month2) return date1
+//     if(month2 < month1) return date2
+//     // if month is same compare day
+//     if(day1 < day2) return date1
+//     if(day2 < day1) return date2
+//     //if same date return any
+//     return date1
+// }
+
+// console.log(minDate('24/05/2021','14/01/2021'))
+
+// //3. print highest frequency character
+// //check prajwal solution   O(n)
+
+// const highFreqChar = str => {
+//     let arr = str.split("")                   
+//     let count = 0,maxFreq = 0 , maxFreqChar = "",charCheck = "";
+
+//    let arr1 =  str.split("").sort()
+//    //0(n) complexity
+//    for(let i =0 ;i<arr1.length ;i++){
+//        if(arr1[i] !== arr1[i+1]){
+//             if(count > maxFreq){
+//                 maxFreq = count;
+//                 maxFreqChar = charCheck;
+//             }
+//             count = 0;
+//        }
+//        else{
+//            charCheck = arr1[i]
+//            count++
+//        }
+//    }
+  
+  
+//     //O(n2) complexity
+//     // for(let i =0 ;i < arr.length ; i++){
+//     //     for(let j = i+1;j<arr.length;j++){
+//     //         if(arr[i] === arr[j]){
+//     //             count++;
+//     //             charCheck = arr[i]
+//     //         }
+//     //     }
+//     //     if(count>maxFreq){
+//     //         maxFreq = count
+//     //         maxFreqChar = charCheck
+//     //     }
+//     //     count = 0;
+//     // }
+//     return maxFreqChar
+// }
+
+// console.log(highFreqChar('nmkeokgkcapknmiokigkg'))
+
+//day 10
+//1.
+const sumOfDigitInStr =  str => {
+    let sum = 0
+    for(let digit of str){
+        sum += Number(digit)
+    }
+    return sum
+}
+
+console.log(sumOfDigitInStr("123456"));
+
+//2.
+const decimalToBinary = num => {
+    let arr= []
+    while(num > 0){
+        arr.push(num%2)
+        num = Math.floor(num/2);
+    }
+    return arr.reverse().join("")
+}
+
+console.log(decimalToBinary(6));
+
+const binaryToDecimal = num => {
+    let decimalNo = 0;
+    100 
+    let i =0;
+    while(num > 0){
+        decimalNo += num%10 * Math.pow(2,i);
+        i++;
+        num = Math.floor(num/10);
+    }
+    return decimalNo
+}
+
+console.log(binaryToDecimal(111));
+
+//3. cyclic rotation of string by k steps
+const cyclicRotation = (num,steps) => {
+    let str= num.toString()
+    let rotation = steps % str.length;
+    return str.slice(rotation) + str.slice(0,rotation)
+}
+console.log(cyclicRotation(1234, 5)); 
+
+//alternate brute force cyclic right rotation
+
+const cyclicRotation1 = (num,steps) => {
+    let arr= num.toString().split("")
+    let actualrotation = steps % arr.length;
+
+    for(let i =1;i<=actualrotation;i++){
+        let lastElement = arr[arr.length -1];
+        for(let j =arr.length-1 ; j>0;j--){
+            arr[j] = arr[j-1]
+        }
+        arr[0]= lastElement
+    }
+    return arr
+   
+}
+console.log(cyclicRotation1(12345, 7)); 
+
+//alternate optimized cyclic right rotation
+
+const cyclicRotation2 = (num,k) => {
+    let arr= num.toString().split("")
+    let n = arr.length,b = []
+    for(let i =0 ;i<n ;i++){
+        let rem = (i+k)%n;
+        b[rem] = arr[i]
+    }
+    console.log('optimized',b)
+   
+}
+cyclicRotation2(12345, 8); 
+
+//4.reverse a no
+const reverseNo = (num) => {
+    let reverseNum = 0;
+    while (num > 0) {
+      let rem = num % 10;
+      reverseNum = reverseNum * 10 + rem;
+      num = Math.floor(num / 10);
+    }
+    return reverseNum;
+  };
+  console.log(reverseNo(23456));
+  
+
