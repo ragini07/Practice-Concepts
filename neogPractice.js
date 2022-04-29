@@ -441,7 +441,6 @@
 // protectEmail("akanq@neog.camp");
 // protectEmail("akanksha@neog.camp");
 
-
 //day 9
 // //1.
 // const typeOfTriangle = (a,b,c) => {
@@ -477,7 +476,7 @@
 // //check prajwal solution   O(n)
 
 // const highFreqChar = str => {
-//     let arr = str.split("")                   
+//     let arr = str.split("")
 //     let count = 0,maxFreq = 0 , maxFreqChar = "",charCheck = "";
 
 //    let arr1 =  str.split("").sort()
@@ -495,8 +494,7 @@
 //            count++
 //        }
 //    }
-  
-  
+
 //     //O(n2) complexity
 //     // for(let i =0 ;i < arr.length ; i++){
 //     //     for(let j = i+1;j<arr.length;j++){
@@ -518,92 +516,233 @@
 
 //day 10
 //1.
-const sumOfDigitInStr =  str => {
-    let sum = 0
-    for(let digit of str){
-        sum += Number(digit)
-    }
-    return sum
-}
+// const sumOfDigitInStr =  str => {
+//     let sum = 0
+//     for(let digit of str){
+//         sum += Number(digit)
+//     }
+//     return sum
+// }
 
-console.log(sumOfDigitInStr("123456"));
+// console.log(sumOfDigitInStr("123456"));
+
+// //2.
+// const decimalToBinary = num => {
+//     let arr= []
+//     while(num > 0){
+//         arr.push(num%2)
+//         num = Math.floor(num/2);
+//     }
+//     return arr.reverse().join("")
+// }
+
+// console.log(decimalToBinary(6));
+
+// const binaryToDecimal = num => {
+//     let decimalNo = 0;
+//     100
+//     let i =0;
+//     while(num > 0){
+//         decimalNo += num%10 * Math.pow(2,i);
+//         i++;
+//         num = Math.floor(num/10);
+//     }
+//     return decimalNo
+// }
+
+// console.log(binaryToDecimal(111));
+
+// //3. cyclic rotation of string by k steps
+// const cyclicRotation = (num,steps) => {
+//     let str= num.toString()
+//     let rotation = steps % str.length;
+//     return str.slice(rotation) + str.slice(0,rotation)
+// }
+// console.log(cyclicRotation(1234, 5));
+
+// //alternate brute force cyclic right rotation
+
+// const cyclicRotation1 = (num,steps) => {
+//     let arr= num.toString().split("")
+//     let actualrotation = steps % arr.length;
+
+//     for(let i =1;i<=actualrotation;i++){
+//         let lastElement = arr[arr.length -1];
+//         for(let j =arr.length-1 ; j>0;j--){
+//             arr[j] = arr[j-1]
+//         }
+//         arr[0]= lastElement
+//     }
+//     return arr
+
+// }
+// console.log(cyclicRotation1(12345, 7));
+
+// //alternate optimized cyclic right rotation
+
+// const cyclicRotation2 = (num,k) => {
+//     let arr= num.toString().split("")
+//     let n = arr.length,b = []
+//     for(let i =0 ;i<n ;i++){
+//         let rem = (i+k)%n;
+//         b[rem] = arr[i]
+//     }
+//     console.log('optimized',b)
+
+// }
+// cyclicRotation2(12345, 8);
+
+// //4.reverse a no
+// const reverseNo = (num) => {
+//     let reverseNum = 0;
+//     while (num > 0) {
+//       let rem = num % 10;
+//       reverseNum = reverseNum * 10 + rem;
+//       num = Math.floor(num / 10);
+//     }
+//     return reverseNum;
+//   };
+//   console.log(reverseNo(23456));
+
+//day14
+//1.
+// const Obj = {
+//     name: "ragini",
+//     age: 23,
+//     hairColor: "black"
+//   };
+
+//   const invertObj = (Obj) => {
+//     let Obj1 = {};
+//     for (let key in Obj) {
+//       Obj1 = { ...Obj1, [Obj[key]]: key };
+//     }
+//     console.log(Obj1);
+//   };
+
+//   invertObj(Obj);
+
+// //2.
+// const lagrestDiff = (arr) => {
+//     let maxDiff = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//       for (let j = i + 1; j < arr.length; j++) {
+//         let diff = Math.abs(arr[i] - arr[j]);
+//         if (diff > maxDiff) maxDiff = diff;
+//       }
+//     }
+//     return maxDiff;
+//   };
+
+//   console.log(lagrestDiff([2, 3, 6, 8, 12, 2]));
+
+// //day15
+// //1.
+// // 2 sum problem
+// const pairOfTarget = (arr,target) => {
+
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]+arr[j] === target)
+//                 return [arr[i],arr[j]]
+//         }
+//     }
+// }
+
+// console.log(pairOfTarget([2,5,8,1],6))
+// //2.
+// //given an arr and int.break array into k chunks and rteurn in an array
+
+// const breakArrInChunks = (arr,k) => {
+//     let result = [],arr1 =[]
+//     for(let i=0;i<arr.length;i++){
+//         if(i%k === 0 && i!=0){
+//             result.push(arr1)
+//             arr1 = []
+//         }
+//         arr1.push(arr[i])
+//     }
+//     result.push(arr1)
+//     return result
+// }
+
+// console.log(breakArrInChunks([1,2,3,4,5,6,7,8,9,10],4))
+
+// //3.
+// //return num with least freq
+
+// const leastFreqNo = arr => {
+
+//     let freq = new Map();
+//     let minNum =0,minCount = +Infinity;
+//     for(let i=0;i<arr.length;i++){
+//         if(freq.has(arr[i])){
+//             freq.set(arr[i],freq.get(arr[i])+1)
+//         }else{
+//             freq.set(arr[i],1)
+//         }
+//     }
+
+//     for(let [key,value] of freq.entries()){
+//         if(value<minCount || (value === minCount && key > minNum )){
+//             minCount = value;
+//             minNum = key
+//         }
+//     }
+//     return minNum
+// }
+
+// console.log(leastFreqNo([1,2,3,4,4,6,8,8,9,9]))
+
+//day 16
+//1.
+//move all 0's to end of array
+
+const moveZeroToEnd = (arr) => {
+  let newArr = [],
+    count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) newArr.push(arr[i]);
+    else count++;
+  }
+  for (let i = 1; i <= count; i++) {
+    newArr.push(0);
+  }
+  return newArr;
+};
+
+console.log(moveZeroToEnd([0, 2, 4, 6, 0, 1, 3, 0, 9]));
 
 //2.
-const decimalToBinary = num => {
-    let arr= []
-    while(num > 0){
-        arr.push(num%2)
-        num = Math.floor(num/2);
-    }
-    return arr.reverse().join("")
-}
+//return elemnt which occur n/2 times
 
-console.log(decimalToBinary(6));
+const getElement = (arr) => {
+  let freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (freq[arr[i]]) freq[arr[i]]++;
+    else freq[arr[i]] = 1;
+  }
+  for (let [key, value] of Object.entries(freq)) {
+    if (value >= Math.floor(arr.length / 2)) return value;
+  }
+};
 
-const binaryToDecimal = num => {
-    let decimalNo = 0;
-    100 
-    let i =0;
-    while(num > 0){
-        decimalNo += num%10 * Math.pow(2,i);
-        i++;
-        num = Math.floor(num/10);
-    }
-    return decimalNo
-}
+console.log(getElement([1, 2, 3, 2, 3, 2, 1]));
 
-console.log(binaryToDecimal(111));
+//3.
+//return first non repeating characrter from string
 
-//3. cyclic rotation of string by k steps
-const cyclicRotation = (num,steps) => {
-    let str= num.toString()
-    let rotation = steps % str.length;
-    return str.slice(rotation) + str.slice(0,rotation)
-}
-console.log(cyclicRotation(1234, 5)); 
+const firstNonRepeatingChar = (str) => {
+  let arr = str.split(""),
+    freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (freq[arr[i]]) freq[arr[i]]++;
+    else freq[arr[i]] = 1;
+  }
+  for (let [key, value] of Object.entries(freq)) {
+    if (value === 1) return key;
+  }
+  return -1;
+};
 
-//alternate brute force cyclic right rotation
-
-const cyclicRotation1 = (num,steps) => {
-    let arr= num.toString().split("")
-    let actualrotation = steps % arr.length;
-
-    for(let i =1;i<=actualrotation;i++){
-        let lastElement = arr[arr.length -1];
-        for(let j =arr.length-1 ; j>0;j--){
-            arr[j] = arr[j-1]
-        }
-        arr[0]= lastElement
-    }
-    return arr
-   
-}
-console.log(cyclicRotation1(12345, 7)); 
-
-//alternate optimized cyclic right rotation
-
-const cyclicRotation2 = (num,k) => {
-    let arr= num.toString().split("")
-    let n = arr.length,b = []
-    for(let i =0 ;i<n ;i++){
-        let rem = (i+k)%n;
-        b[rem] = arr[i]
-    }
-    console.log('optimized',b)
-   
-}
-cyclicRotation2(12345, 8); 
-
-//4.reverse a no
-const reverseNo = (num) => {
-    let reverseNum = 0;
-    while (num > 0) {
-      let rem = num % 10;
-      reverseNum = reverseNum * 10 + rem;
-      num = Math.floor(num / 10);
-    }
-    return reverseNum;
-  };
-  console.log(reverseNo(23456));
-  
-
+console.log(firstNonRepeatingChar("neogcamp"));
