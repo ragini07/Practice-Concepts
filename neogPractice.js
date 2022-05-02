@@ -636,9 +636,29 @@
 
 //   console.log(lagrestDiff([2, 3, 6, 8, 12, 2]));
 
+//alternate
+
+//  const lagrestDiff1 = (arr) => {
+
+//     if(arr.length === 0) return 0;
+//     let min = arr[0],max= arr[0];
+
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]<min)
+//             min = arr[i]
+//         if(arr[i] > max)
+//             max= arr[i]
+//     }
+//     return Math.abs(max - min)
+
+//    };
+
+//   console.log(lagrestDiff1([2, 3, 6, 8, 12, 2]));
+
+
 // //day15
 // //1.
-// // 2 sum problem
+// // 2 sum problem 
 // const pairOfTarget = (arr,target) => {
 
 //     for(let i=0;i<arr.length;i++){
@@ -698,51 +718,164 @@
 //1.
 //move all 0's to end of array
 
-const moveZeroToEnd = (arr) => {
-  let newArr = [],
-    count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i]) newArr.push(arr[i]);
-    else count++;
-  }
-  for (let i = 1; i <= count; i++) {
-    newArr.push(0);
-  }
-  return newArr;
+// const moveZeroToEnd = (arr) => {
+//   let newArr = [],
+//     count = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i]) newArr.push(arr[i]);
+//     else count++;
+//   }
+//   for (let i = 1; i <= count; i++) {
+//     newArr.push(0);
+//   }
+//   return newArr;
+// };
+
+// console.log(moveZeroToEnd([0, 2, 4, 6, 0, 1, 3, 0, 9]));
+
+// //2.
+// //return elemnt which occur n/2 times
+
+// const getElement = (arr) => {
+//   let freq = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     if (freq[arr[i]]) freq[arr[i]]++;
+//     else freq[arr[i]] = 1;
+//   }
+//   for (let [key, value] of Object.entries(freq)) {
+//     if (value >= Math.floor(arr.length / 2)) return value;
+//   }
+// };
+
+// console.log(getElement([1, 2, 3, 2, 3, 2, 1]));
+
+// //3.
+// //return first non repeating characrter from string
+
+// const firstNonRepeatingChar = (str) => {
+//   let arr = str.split(""),
+//     freq = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     if (freq[arr[i]]) freq[arr[i]]++;
+//     else freq[arr[i]] = 1;
+//   }
+//   for (let [key, value] of Object.entries(freq)) {
+//     if (value === 1) return key;
+//   }
+//   return -1;
+// };
+
+// console.log(firstNonRepeatingChar("neogcamp"));
+
+
+//day 17
+//1. 
+
+const defangledIP = (str) => {
+  let arr = str.split("");
+  const defangledIP = arr
+    .map((element) => (element === "." ? "[.]" : element))
+    .join("");
+  return defangledIP;
 };
 
-console.log(moveZeroToEnd([0, 2, 4, 6, 0, 1, 3, 0, 9]));
+console.log(defangledIP("255.100.00.01"));
 
-//2.
-//return elemnt which occur n/2 times
 
-const getElement = (arr) => {
-  let freq = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (freq[arr[i]]) freq[arr[i]]++;
-    else freq[arr[i]] = 1;
+//2.given a string.Reverse all vowels in it
+
+const isVowel = char => "aeiou".includes(char.toLowerCase())
+
+const reverseOnlyVowels = str => {
+
+  let allVowels = [],result = "";
+  for(let i = 0;i<str.length ;i++){
+    if(isVowel(str[i]))
+        allVowels.push(str[i])
   }
-  for (let [key, value] of Object.entries(freq)) {
-    if (value >= Math.floor(arr.length / 2)) return value;
+  for(let i = 0;i<str.length ;i++){
+    if(isVowel(str[i]))
+       result += allVowels.pop()
+    else
+      result += str[i]
   }
-};
+  console.log(result)
+}
 
-console.log(getElement([1, 2, 3, 2, 3, 2, 1]));
+reverseOnlyVowels('neogCAmp')
+
+//alternate 2 pointer approach
+
+const reverseOnlyVowels1 = str => {
+
+  let i = 0 ,j=str.length-1,arr= str.split("");
+  while(i<j){
+    if(isVowel(arr[i]) && isVowel(arr[j])){
+      [arr[i],arr[j]] =  [arr[j],arr[i]];
+      i++;
+      j--;
+    }
+    if(!isVowel(arr[i]))
+      i++;
+    if(!isVowel(arr[j]))
+      j--;
+  }
+  console.log(arr.join(""))
+}
+
+reverseOnlyVowels1('neogCAmp')
 
 //3.
-//return first non repeating characrter from string
+//find no of summerfruits in fruits.every character in summerfruit is unique
 
-const firstNonRepeatingChar = (str) => {
-  let arr = str.split(""),
-    freq = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (freq[arr[i]]) freq[arr[i]]++;
-    else freq[arr[i]] = 1;
+//0(n2)
+const findFruits = (summerFruits, fruits) => {
+  let count = 0;
+  for (let j = 0; j < summerFruits.length; j++) {
+    for (let i = 0; i < fruits.length; i++) {
+      if (fruits[i] === summerFruits[j]) count++;
+    }
   }
-  for (let [key, value] of Object.entries(freq)) {
-    if (value === 1) return key;
-  }
-  return -1;
+  console.log(count);
 };
 
-console.log(firstNonRepeatingChar("neogcamp"));
+findFruits("aA", "aaAAbcfeej");
+
+//0(n)
+
+const findFruits1 = (summerFruits, fruits) => {
+  let freq = {},
+    count = 0;
+  for (let i = 0; i < fruits.length; i++) {
+    if (freq[fruits[i]]) freq[fruits[i]]++;
+    else freq[fruits[i]] = 1;
+  }
+
+  for (let i = 0; i < summerFruits.length; i++) {
+    if (freq[summerFruits[i]]) count += freq[summerFruits[i]];
+  }
+  console.log(count);
+};
+
+findFruits1("aA", "aaAAbcfeej");
+
+//    BINARY SEARCH
+
+const binarySearch = (arr,num) => {
+  let l =0,r = arr.length-1;
+
+  while(l<=r){
+
+    let mid = Math.floor(l+(r-l)/2);
+    console.log(mid)
+    if(arr[mid] === num)
+      return mid
+    if(num < arr[mid])
+      r = mid-1;
+    else
+      l = mid+1;
+  }
+  return -1;
+}
+
+console.log(binarySearch([2,3,4,5,6,7,8,13,16,17],8))
