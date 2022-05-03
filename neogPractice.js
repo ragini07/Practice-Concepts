@@ -771,228 +771,270 @@
 //day 17
 //1. 
 
-const defangledIP = (str) => {
-  let arr = str.split("");
-  const defangledIP = arr
-    .map((element) => (element === "." ? "[.]" : element))
-    .join("");
-  return defangledIP;
-};
+// const defangledIP = (str) => {
+//   let arr = str.split("");
+//   const defangledIP = arr
+//     .map((element) => (element === "." ? "[.]" : element))
+//     .join("");
+//   return defangledIP;
+// };
 
-console.log(defangledIP("255.100.00.01"));
+// console.log(defangledIP("255.100.00.01"));
 
 
-//2.given a string.Reverse all vowels in it
+// //2.given a string.Reverse all vowels in it
 
-const isVowel = char => "aeiou".includes(char.toLowerCase())
+// const isVowel = char => "aeiou".includes(char.toLowerCase())
 
-const reverseOnlyVowels = str => {
+// const reverseOnlyVowels = str => {
 
-  let allVowels = [],result = "";
-  for(let i = 0;i<str.length ;i++){
-    if(isVowel(str[i]))
-        allVowels.push(str[i])
-  }
-  for(let i = 0;i<str.length ;i++){
-    if(isVowel(str[i]))
-       result += allVowels.pop()
+//   let allVowels = [],result = "";
+//   for(let i = 0;i<str.length ;i++){
+//     if(isVowel(str[i]))
+//         allVowels.push(str[i])
+//   }
+//   for(let i = 0;i<str.length ;i++){
+//     if(isVowel(str[i]))
+//        result += allVowels.pop()
+//     else
+//       result += str[i]
+//   }
+//   console.log(result)
+// }
+
+// reverseOnlyVowels('neogCAmp')
+
+// //alternate 2 pointer approach
+
+// const reverseOnlyVowels1 = str => {
+
+//   let i = 0 ,j=str.length-1,arr= str.split("");
+//   while(i<j){
+//     if(isVowel(arr[i]) && isVowel(arr[j])){
+//       [arr[i],arr[j]] =  [arr[j],arr[i]];
+//       i++;
+//       j--;
+//     }
+//     if(!isVowel(arr[i]))
+//       i++;
+//     if(!isVowel(arr[j]))
+//       j--;
+//   }
+//   console.log(arr.join(""))
+// }
+
+// reverseOnlyVowels1('neogCAmp')
+
+// //3.
+// //find no of summerfruits in fruits.every character in summerfruit is unique
+
+// //0(n2)
+// const findFruits = (summerFruits, fruits) => {
+//   let count = 0;
+//   for (let j = 0; j < summerFruits.length; j++) {
+//     for (let i = 0; i < fruits.length; i++) {
+//       if (fruits[i] === summerFruits[j]) count++;
+//     }
+//   }
+//   console.log(count);
+// };
+
+// findFruits("aA", "aaAAbcfeej");
+
+// //0(n)
+
+// const findFruits1 = (summerFruits, fruits) => {
+//   let freq = {},
+//     count = 0;
+//   for (let i = 0; i < fruits.length; i++) {
+//     if (freq[fruits[i]]) freq[fruits[i]]++;
+//     else freq[fruits[i]] = 1;
+//   }
+
+//   for (let i = 0; i < summerFruits.length; i++) {
+//     if (freq[summerFruits[i]]) count += freq[summerFruits[i]];
+//   }
+//   console.log(count);
+// };
+
+// findFruits1("aA", "aaAAbcfeej");
+
+// //    BINARY SEARCH
+
+// const binarySearch = (arr,num) => {
+//   let l =0,r = arr.length-1;
+
+//   while(l<=r){
+
+//     let mid = Math.floor(l+(r-l)/2);
+//     console.log(mid)
+//     if(arr[mid] === num)
+//       return mid
+//     if(num < arr[mid])
+//       r = mid-1;
+//     else
+//       l = mid+1;
+//   }
+//   return -1;
+// }
+
+// console.log(binarySearch([2,3,4,5,6,7,8,13,16,17],8))
+
+// //PEAK ELEMENT
+
+// //O(n) complexity
+// const findPeakElement = arr => {
+
+//   if(arr[0] > arr[1]){
+//       return 0;
+//   }
+//   if(arr[arr.length-1] > arr[arr.length-2] ){
+//       return arr.length-1
+//   }
+
+//   for(let i=1;i<arr.length-1;i++){
+//      if(arr[i]> arr[i+1] && arr[i] > arr[i-1])
+//       return i;
+//   }
+// }
+
+// console.log("peak",findPeakElement([2,10,20,30,35,38,39,40,30]))
+
+// //O(logn)
+
+// const findPeakElement1 = arr => {
+//   let start = 0,end= arr.length-1;
+
+//   if(arr[0] > arr[1]){
+//     return 0;
+//   }
+//   if(arr[arr.length-1] > arr[arr.length-2] ){
+//     return arr.length-1
+//   }
+//   while(start <= end){
+//     let mid = Math.floor(start + (end - start)/2);
+//       if(arr[mid] > arr[mid-1] && arr[mid] > arr[mid+1])
+//         return mid;
+//       if(arr[mid+1] > arr[mid])
+//         start = mid+1;
+//       else
+//         end = mid-1;
+//   }
+  
+
+// }
+
+// console.log("peakbs",findPeakElement1([2,10,20,30,35,38,39,40,30,20]))
+
+// //day 18
+// //1.return length of last word
+
+// const lastWordLength = str => {
+//   let arr = str.trim().split(" ");
+//   return arr[arr.length -1].length
+// }
+
+// console.log(lastWordLength('  hello neogrammars you guys rock  '))
+
+// //2. check if strings are anagram or not
+
+// const checkAnagramOfStrings = (str1,str2) => {
+//   if(str1.split("").sort().join("") === str2.split("").sort().join(""))
+//     return 1;
+//   return 0;
+
+// }
+
+// console.log(checkAnagramOfStrings('helzlo','lezloh'))
+
+// //alternate
+// const checkAnagramOfStrings1 = (str1,str2) => {
+//   let freq = {};
+//   for(let i=0;i<str1.length;i++){
+//     if(freq[str1[i]])
+//       freq[str1[i]]++;
+//     else
+//       freq[str1[i]] = 1;
+//   }
+//   for(let i=0;i<str2.length;i++){
+//     if(freq[str2[i]])
+//       freq[str2[i]]--;
+//   }
+//   console.log(freq)
+//   for(let [key,value] of Object.entries(freq)){
+//     if(value !== 0)
+//       return 'not anagram'
+//   }
+//   return 'anagram'
+
+// }
+
+// console.log(checkAnagramOfStrings1('helzlo','lezloh'))
+
+// //3.check if first string match second string with some number of shifts
+
+// const checkStrings = (str1,str2) =>{
+
+//   if(str1.length !== str2.length) return false;
+//   let j = str2.split("").findIndex((element) => element === str1[0]);
+
+//   for(let i=0;i< str1.length;i++){
+//     if(str1[i] !== str2[j])
+//       return false;
+//     j = (j+1)% str2.length;
+//   }
+//   return true;
+
+// }
+// console.log(checkStrings('hello','llohe')) 
+
+// //alternate
+// const checkStrings1 = (str1,str2) =>{
+
+//   if(str1.length !== str2.length) return false
+//   return (str1+str1).includes(str2);
+
+// }
+// console.log(checkStrings1('hello','llohe')) 
+
+//day 19
+//1.check if month has 30 or 31 days
+
+const findDaysinMonth = month =>{
+  const arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+  console.log(`${arr[month-1]} days`)
+}
+findDaysinMonth(11)
+
+//2.find total no of consotants and vowels in string
+
+const isVowel1 = char => "aeiou".includes(char.toLowerCase())
+
+const countOfVowelsAnsConstants = str => {
+  const result = str.split("").reduce((acc,curr) => isVowel1(curr) ? {...acc , vowels : acc['vowels']+1} : {...acc , consonants : acc['consonants']+1}
+  ,{vowels : 0,consonants : 0})
+  console.log(result)
+}
+countOfVowelsAnsConstants('bookkepper')
+
+//3.fizzBuzz
+
+const fizzBuzz = () => {
+  const result = [];
+
+  for(let i=1;i<=100;i++){
+    if(i%3 === 0 && i%5=== 0)
+      result.push('fizzbuzz')
+    else if(i%3 === 0)
+      result.push('fizz')
+    else if(i%5 === 0)
+      result.push('buzz')
     else
-      result += str[i]
+      result.push(i)
+
   }
+
   console.log(result)
 }
 
-reverseOnlyVowels('neogCAmp')
-
-//alternate 2 pointer approach
-
-const reverseOnlyVowels1 = str => {
-
-  let i = 0 ,j=str.length-1,arr= str.split("");
-  while(i<j){
-    if(isVowel(arr[i]) && isVowel(arr[j])){
-      [arr[i],arr[j]] =  [arr[j],arr[i]];
-      i++;
-      j--;
-    }
-    if(!isVowel(arr[i]))
-      i++;
-    if(!isVowel(arr[j]))
-      j--;
-  }
-  console.log(arr.join(""))
-}
-
-reverseOnlyVowels1('neogCAmp')
-
-//3.
-//find no of summerfruits in fruits.every character in summerfruit is unique
-
-//0(n2)
-const findFruits = (summerFruits, fruits) => {
-  let count = 0;
-  for (let j = 0; j < summerFruits.length; j++) {
-    for (let i = 0; i < fruits.length; i++) {
-      if (fruits[i] === summerFruits[j]) count++;
-    }
-  }
-  console.log(count);
-};
-
-findFruits("aA", "aaAAbcfeej");
-
-//0(n)
-
-const findFruits1 = (summerFruits, fruits) => {
-  let freq = {},
-    count = 0;
-  for (let i = 0; i < fruits.length; i++) {
-    if (freq[fruits[i]]) freq[fruits[i]]++;
-    else freq[fruits[i]] = 1;
-  }
-
-  for (let i = 0; i < summerFruits.length; i++) {
-    if (freq[summerFruits[i]]) count += freq[summerFruits[i]];
-  }
-  console.log(count);
-};
-
-findFruits1("aA", "aaAAbcfeej");
-
-//    BINARY SEARCH
-
-const binarySearch = (arr,num) => {
-  let l =0,r = arr.length-1;
-
-  while(l<=r){
-
-    let mid = Math.floor(l+(r-l)/2);
-    console.log(mid)
-    if(arr[mid] === num)
-      return mid
-    if(num < arr[mid])
-      r = mid-1;
-    else
-      l = mid+1;
-  }
-  return -1;
-}
-
-console.log(binarySearch([2,3,4,5,6,7,8,13,16,17],8))
-
-//PEAK ELEMENT
-
-//O(n) complexity
-const findPeakElement = arr => {
-
-  if(arr[0] > arr[1]){
-      return 0;
-  }
-  if(arr[arr.length-1] > arr[arr.length-2] ){
-      return arr.length-1
-  }
-
-  for(let i=1;i<arr.length-1;i++){
-     if(arr[i]> arr[i+1] && arr[i] > arr[i-1])
-      return i;
-  }
-}
-
-console.log("peak",findPeakElement([2,10,20,30,35,38,39,40,30]))
-
-//O(logn)
-
-const findPeakElement1 = arr => {
-  let start = 0,end= arr.length-1;
-
-  if(arr[0] > arr[1]){
-    return 0;
-  }
-  if(arr[arr.length-1] > arr[arr.length-2] ){
-    return arr.length-1
-  }
-  while(start <= end){
-    let mid = Math.floor(start + (end - start)/2);
-      if(arr[mid] > arr[mid-1] && arr[mid] > arr[mid+1])
-        return mid;
-      if(arr[mid+1] > arr[mid])
-        start = mid+1;
-      else
-        end = mid-1;
-  }
-  
-
-}
-
-console.log("peakbs",findPeakElement1([2,10,20,30,35,38,39,40,30,20]))
-
-//day 18
-//1.return length of last word
-
-const lastWordLength = str => {
-  let arr = str.trim().split(" ");
-  return arr[arr.length -1].length
-}
-
-console.log(lastWordLength('  hello neogrammars you guys rock  '))
-
-//2. check if strings are anagram or not
-
-const checkAnagramOfStrings = (str1,str2) => {
-  if(str1.split("").sort().join("") === str2.split("").sort().join(""))
-    return 1;
-  return 0;
-
-}
-
-console.log(checkAnagramOfStrings('helzlo','lezloh'))
-
-//alternate
-const checkAnagramOfStrings1 = (str1,str2) => {
-  let freq = {};
-  for(let i=0;i<str1.length;i++){
-    if(freq[str1[i]])
-      freq[str1[i]]++;
-    else
-      freq[str1[i]] = 1;
-  }
-  for(let i=0;i<str2.length;i++){
-    if(freq[str2[i]])
-      freq[str2[i]]--;
-  }
-  console.log(freq)
-  for(let [key,value] of Object.entries(freq)){
-    if(value !== 0)
-      return 'not anagram'
-  }
-  return 'anagram'
-
-}
-
-console.log(checkAnagramOfStrings1('helzlo','lezloh'))
-
-//3.check if first string match second string with some number of shifts
-
-const checkStrings = (str1,str2) =>{
-
-  if(str1.length !== str2.length) return false;
-  let j = str2.split("").findIndex((element) => element === str1[0]);
-
-  for(let i=0;i< str1.length;i++){
-    if(str1[i] !== str2[j])
-      return false;
-    j = (j+1)% str2.length;
-  }
-  return true;
-
-}
-console.log(checkStrings('hello','llohe')) 
-
-//alternate
-const checkStrings1 = (str1,str2) =>{
-
-  if(str1.length !== str2.length) return false
-  return (str1+str1).includes(str2);
-
-}
-console.log(checkStrings1('hello','llohe')) 
+fizzBuzz()
