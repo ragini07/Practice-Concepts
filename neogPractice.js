@@ -879,3 +879,120 @@ const binarySearch = (arr,num) => {
 }
 
 console.log(binarySearch([2,3,4,5,6,7,8,13,16,17],8))
+
+//PEAK ELEMENT
+
+//O(n) complexity
+const findPeakElement = arr => {
+
+  if(arr[0] > arr[1]){
+      return 0;
+  }
+  if(arr[arr.length-1] > arr[arr.length-2] ){
+      return arr.length-1
+  }
+
+  for(let i=1;i<arr.length-1;i++){
+     if(arr[i]> arr[i+1] && arr[i] > arr[i-1])
+      return i;
+  }
+}
+
+console.log("peak",findPeakElement([2,10,20,30,35,38,39,40,30]))
+
+//O(logn)
+
+const findPeakElement1 = arr => {
+  let start = 0,end= arr.length-1;
+
+  if(arr[0] > arr[1]){
+    return 0;
+  }
+  if(arr[arr.length-1] > arr[arr.length-2] ){
+    return arr.length-1
+  }
+  while(start <= end){
+    let mid = Math.floor(start + (end - start)/2);
+      if(arr[mid] > arr[mid-1] && arr[mid] > arr[mid+1])
+        return mid;
+      if(arr[mid+1] > arr[mid])
+        start = mid+1;
+      else
+        end = mid-1;
+  }
+  
+
+}
+
+console.log("peakbs",findPeakElement1([2,10,20,30,35,38,39,40,30,20]))
+
+//day 18
+//1.return length of last word
+
+const lastWordLength = str => {
+  let arr = str.trim().split(" ");
+  return arr[arr.length -1].length
+}
+
+console.log(lastWordLength('  hello neogrammars you guys rock  '))
+
+//2. check if strings are anagram or not
+
+const checkAnagramOfStrings = (str1,str2) => {
+  if(str1.split("").sort().join("") === str2.split("").sort().join(""))
+    return 1;
+  return 0;
+
+}
+
+console.log(checkAnagramOfStrings('helzlo','lezloh'))
+
+//alternate
+const checkAnagramOfStrings1 = (str1,str2) => {
+  let freq = {};
+  for(let i=0;i<str1.length;i++){
+    if(freq[str1[i]])
+      freq[str1[i]]++;
+    else
+      freq[str1[i]] = 1;
+  }
+  for(let i=0;i<str2.length;i++){
+    if(freq[str2[i]])
+      freq[str2[i]]--;
+  }
+  console.log(freq)
+  for(let [key,value] of Object.entries(freq)){
+    if(value !== 0)
+      return 'not anagram'
+  }
+  return 'anagram'
+
+}
+
+console.log(checkAnagramOfStrings1('helzlo','lezloh'))
+
+//3.check if first string match second string with some number of shifts
+
+const checkStrings = (str1,str2) =>{
+
+  if(str1.length !== str2.length) return false;
+  let j = str2.split("").findIndex((element) => element === str1[0]);
+
+  for(let i=0;i< str1.length;i++){
+    if(str1[i] !== str2[j])
+      return false;
+    j = (j+1)% str2.length;
+  }
+  return true;
+
+}
+console.log(checkStrings('hello','llohe')) 
+
+//alternate
+const checkStrings1 = (str1,str2) =>{
+
+  if(str1.length !== str2.length) return false
+  return (str1+str1).includes(str2);
+
+}
+console.log(checkStrings1('hello','llohe')) 
