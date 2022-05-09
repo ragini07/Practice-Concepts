@@ -655,10 +655,9 @@
 
 //   console.log(lagrestDiff1([2, 3, 6, 8, 12, 2]));
 
-
 // //day15
 // //1.
-// // 2 sum problem 
+// // 2 sum problem
 // const pairOfTarget = (arr,target) => {
 
 //     for(let i=0;i<arr.length;i++){
@@ -669,7 +668,34 @@
 //     }
 // }
 
-// console.log(pairOfTarget([2,5,8,1],6))
+// console.log("bruteforce",pairOfTarget([2,5,8,1],6))
+
+// const pairOfTarget1 = (arr,target) => {
+
+//   const freq = {};
+//   for(let i=0;i<arr.length;i++)
+//   {
+//     let diff = target-arr[i];
+//     if(freq.hasOwnProperty(diff)){
+//       return [arr[i],diff]
+//     }
+
+//     freq[arr[i]] = i;
+//     console.log(freq)
+//   }
+
+//   // const freq1 = new Map();
+//   // for(let i=0;i<arr.length;i++)
+//   // {
+//   //   let diff = target - arr[i]
+//   //   if(freq1.has(diff))
+//   //     return [i,freq1.get(diff)]
+//   //   freq1.set(arr[i],i)
+//   // }
+// }
+
+// console.log("2-sum",pairOfTarget1([2,5,8,4,1],6))
+
 // //2.
 // //given an arr and int.break array into k chunks and rteurn in an array
 
@@ -767,9 +793,8 @@
 
 // console.log(firstNonRepeatingChar("neogcamp"));
 
-
 //day 17
-//1. 
+//1.
 
 // const defangledIP = (str) => {
 //   let arr = str.split("");
@@ -780,7 +805,6 @@
 // };
 
 // console.log(defangledIP("255.100.00.01"));
-
 
 // //2.given a string.Reverse all vowels in it
 
@@ -920,7 +944,6 @@
 //       else
 //         end = mid-1;
 //   }
-  
 
 // }
 
@@ -986,7 +1009,7 @@
 //   return true;
 
 // }
-// console.log(checkStrings('hello','llohe')) 
+// console.log(checkStrings('hello','llohe'))
 
 // //alternate
 // const checkStrings1 = (str1,str2) =>{
@@ -995,46 +1018,153 @@
 //   return (str1+str1).includes(str2);
 
 // }
-// console.log(checkStrings1('hello','llohe')) 
+// console.log(checkStrings1('hello','llohe'))
 
 //day 19
-//1.check if month has 30 or 31 days
+// //1.check if month has 30 or 31 days
 
-const findDaysinMonth = month =>{
-  const arr = [31,28,31,30,31,30,31,31,30,31,30,31];
-  console.log(`${arr[month-1]} days`)
-}
-findDaysinMonth(11)
+// const findDaysinMonth = month =>{
+//   const arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+//   console.log(`${arr[month-1]} days`)
+// }
+// findDaysinMonth(11)
 
-//2.find total no of consotants and vowels in string
+// //2.find total no of consotants and vowels in string
 
-const isVowel1 = char => "aeiou".includes(char.toLowerCase())
+// const isVowel1 = char => "aeiou".includes(char.toLowerCase())
 
-const countOfVowelsAnsConstants = str => {
-  const result = str.split("").reduce((acc,curr) => isVowel1(curr) ? {...acc , vowels : acc['vowels']+1} : {...acc , consonants : acc['consonants']+1}
-  ,{vowels : 0,consonants : 0})
-  console.log(result)
-}
-countOfVowelsAnsConstants('bookkepper')
+// const countOfVowelsAnsConstants = str => {
+//   const result = str.split("").reduce((acc,curr) => isVowel1(curr) ? {...acc , vowels : acc['vowels']+1} : {...acc , consonants : acc['consonants']+1}
+//   ,{vowels : 0,consonants : 0})
+//   console.log(result)
+// }
+// countOfVowelsAnsConstants('bookkepper')
 
-//3.fizzBuzz
+// //3.fizzBuzz
 
-const fizzBuzz = () => {
-  const result = [];
+// const fizzBuzz = () => {
+//   const result = [];
 
-  for(let i=1;i<=100;i++){
-    if(i%3 === 0 && i%5=== 0)
-      result.push('fizzbuzz')
-    else if(i%3 === 0)
-      result.push('fizz')
-    else if(i%5 === 0)
-      result.push('buzz')
-    else
-      result.push(i)
+//   for(let i=1;i<=100;i++){
+//     if(i%3 === 0 && i%5=== 0)
+//       result.push('fizzbuzz')
+//     else if(i%3 === 0)
+//       result.push('fizz')
+//     else if(i%5 === 0)
+//       result.push('buzz')
+//     else
+//       result.push(i)
 
+//   }
+
+//   console.log(result)
+// }
+
+// fizzBuzz()
+
+//                                  MERGE TWO SORTED ARRAY
+
+// const mergeSortedArr = (arr1,arr2) => {
+
+//   let i=0,j=0;
+//   let mergedArr = []
+//   while(i < arr1.length && j < arr2.length){
+//     if(arr1[i] < arr2[j]){
+//       mergedArr.push(arr1[i]);
+//       i++;
+//     }
+//     else{
+//       mergedArr.push(arr2[j]);
+//       j++;
+//     }
+//   }
+
+//     while(i<arr1.length){
+//       mergedArr.push(arr1[i]);
+//       i++;
+//     }
+
+//     while(j<arr2.length){
+//       mergedArr.push(arr2[j]);
+//       j++;
+//     }
+
+// console.log(mergedArr)
+
+// }
+// mergeSortedArr([2,4,6,7,11],[1,3,5,6,8,10,12,15])
+
+//day 20 missed
+// transponse of matrix and roate matrix by 90 degrees
+
+//day21
+
+//1.
+const resultantArr = (arr) => {
+  let result = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   arr[i].reverse();
+  // }
+  // for (let i = 0; i < arr.length; i++) {
+  //   for (let j = 0; j < arr.length; j++)
+  //     if (arr[i][j] === 1) arr[i][j] = 0;
+  //     else arr[i][j] = 1;
+  // }
+  // return arr;
+
+  //deep copy
+  let newArr = arr.map((e) => [...e]);
+  console.log(arr.map((Arr) => Arr.reverse().map((e) => (e ? 0 : 1))));
+};
+
+console.log(
+  resultantArr([
+    [1, 1, 0],
+    [1, 0, 1],
+    [0, 0, 0],
+  ])
+);
+
+//2.
+const discountedResult = (arr) => {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let flag = 0;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] <= arr[i]) {
+        result.push(arr[i] - arr[j]);
+        flag = 1;
+        break;
+      }
+    }
+    if (flag === 0) result.push(arr[i]);
   }
 
-  console.log(result)
-}
+  return result;
+};
 
-fizzBuzz()
+console.log(discountedResult([8, 4, 6, 2, 3]));
+
+//3.
+const totalScore = (arr) => {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    switch (arr[i]) {
+      case "C":
+        result.pop();
+        break;
+      case "D":
+        result.push(result[result.length - 1] * 2);
+        break;
+      case "+":
+        result.push(result[result.length - 1] + result[result.length - 2]);
+        break;
+      default:
+        result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
+console.log(totalScore([5, 2, "C", "D", "+"]));
