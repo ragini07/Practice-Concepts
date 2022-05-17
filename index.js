@@ -91,23 +91,23 @@
 //Event capturing->start from outerwards and end at target element
 
 
-// document.querySelector('#grandparent')
-//     .addEventListener('click',(e)=>{
-//        // e.stopPropagation();
-//         console.log("GrandParent clicked")
-//     },false); //bubbling
+document.querySelector('#grandparent')
+    .addEventListener('click',(e)=>{
+       // e.stopPropagation();
+        console.log("GrandParent clicked")
+    },false); //bubbling
 
-// document.querySelector('#parent')
-//     .addEventListener('click',(e)=>{
-//       //  e.stopPropagation();
-//         console.log("Parent clicked")
-//     },false);
+document.querySelector('#parent')
+    .addEventListener('click',(e)=>{
+      //  e.stopPropagation();
+        console.log("Parent clicked")
+    },false);
 
-//     document.querySelector('#child')
-//     .addEventListener('click',(e)=>{
-//        // e.stopPropagation();
-//         console.log("child clicked")
-//     },true);
+    document.querySelector('#child')
+    .addEventListener('click',(e)=>{
+       e.stopPropagation();
+        console.log("child clicked")
+    },false);
 
 
 /*********************** Event Delegation************************/
