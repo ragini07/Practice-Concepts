@@ -23,8 +23,12 @@ const missingNum = arr => {
 }
 console.log(missingNum(arr))
 
+//make accordion
+//make tic tak toe
+
 //flatten an array
 
+//flatten deeply nested  array
 const arr1 = [1, 2, 3, [5, 6, 7], { name: "ragini" }];
 
 const result = arr1.reduce((acc, curr) => {
@@ -36,7 +40,7 @@ const result = arr1.reduce((acc, curr) => {
     acc = [...acc, ...curr];
     return acc;
   }
-  acc = [...acc, curr];
+  acc = [...acc, curr];                                  
   return acc;
 }, []);
 
@@ -47,8 +51,6 @@ console.log(result);
 
 //what and why to change to make it work
 //https://codesandbox.io/s/gifted-kirch-nfb7i5?file=/src/App.js
-
-
 
 //round 3
 
@@ -66,7 +68,6 @@ console.log(result);
 
 // // reversedStr = h
 // //str = ragini sing
-
 
 //     Group elements of an array based on their first occurrence
 // Input:  {​​​ 1, 2, 3, 1, 2, 1 }​​​
@@ -149,3 +150,7 @@ let arrayCopy = [...originalArray];
 arrayCopy[2].hello = "moon";
 console.log(arrayCopy);
 console.log(originalArray);
+
+
+//****************CODITAS ***************/
+
